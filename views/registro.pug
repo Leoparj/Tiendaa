@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Registrarse
+
+  form(action="/registro" method="post")
+    label(for="usuario") Usuario
+    input(type="text" id="usuario" name="usuario" required)
+    label(for="password") Contraseña
+    input(type="password" id="password" name="password" required)
+    button(type="submit" class="Botonregistro") Registrarse
+
+  if errors
+    each error in errors
+      p.error= error
+
+  if message
+    p.success= message

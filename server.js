@@ -26,7 +26,7 @@ app.use(express.json());
 
 // Ruta para la página de inicio
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Página de Bienvenida' });
+    res.render('index', { title: 'Pear Store - La tienda de tu preferencia.' });
 }); 
 
 // Ruta para el catálogo de productos
@@ -123,6 +123,21 @@ app.post('/eliminar-del-carrito/:id', (req, res) => {
     res.redirect('/carrito');
 });
 
+// Ruta para el formulario de registro
+app.get('/registro', (req, res) => {
+    // Renderizar la plantilla Pug para el formulario de registro
+    res.render('registro');
+  });
+  
+  // Ruta para manejar la solicitud POST del formulario
+  app.post('/registro', (req, res) => {
+    // Obtener la información del formulario (nombre, email, contraseña)
+    const { nombre, email, contraseña } = req.body;
+  
+    // Validar la información del formulario (opcional)
+  
+    // Almacenar la información del usuario en la base de datos (asumiendo que tienes una)
+  });
 // Middleware para procesar la compra
 app.post('/procesar-compra', (req, res) => {
     // Aquí iría la lógica para procesar la compra, por ejemplo, actualizar la base de datos y vaciar el carrito
